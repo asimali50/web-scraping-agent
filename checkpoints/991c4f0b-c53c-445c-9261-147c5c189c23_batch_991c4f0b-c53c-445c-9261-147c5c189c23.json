@@ -1,0 +1,43 @@
+{
+  "session_id": "991c4f0b-c53c-445c-9261-147c5c189c23",
+  "batch_name": "batch_991c4f0b-c53c-445c-9261-147c5c189c23",
+  "timestamp": "2026-07-03T12:17:24.039475",
+  "total_rows": 3,
+  "processed_rows": 3,
+  "completion_percentage": 100.0,
+  "execution_logs": [
+    {
+      "row_number": 1,
+      "brand_name": "Apple",
+      "amazon_link": "https://www.amazon.com/Apple-AirPods-Latest-Model/dp/B08N5KWB9H",
+      "website_selected": "https://www.apple.com",
+      "confidence": 95.0,
+      "status": "found",
+      "reason": "Cached result: Retrieved from cache (source: test)",
+      "execution_time": 0.003609895706176758
+    },
+    {
+      "row_number": 2,
+      "brand_name": "Samsung",
+      "amazon_link": "https://www.amazon.com/Samsung-SAMSUNG-Galaxy-S21-Ultra/dp/B08N6Z9N3D",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "not_found",
+      "reason": "No results found on Google",
+      "execution_time": 26.659578800201416
+    },
+    {
+      "row_number": 3,
+      "brand_name": "Sony",
+      "amazon_link": "https://www.amazon.com/Sony-WH1000XM4-Wireless-Headphones-WH1000XM4/dp/B0863TXGM3",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "not_found",
+      "reason": "No results found on Google",
+      "execution_time": 27.733837366104126
+    }
+  ],
+  "config": {
+    "max_workers": 2
+  }
+}

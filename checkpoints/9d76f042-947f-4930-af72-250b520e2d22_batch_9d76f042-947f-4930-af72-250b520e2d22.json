@@ -1,0 +1,43 @@
+{
+  "session_id": "9d76f042-947f-4930-af72-250b520e2d22",
+  "batch_name": "batch_9d76f042-947f-4930-af72-250b520e2d22",
+  "timestamp": "2026-07-02T16:22:15.523448",
+  "total_rows": 3,
+  "processed_rows": 3,
+  "completion_percentage": 100.0,
+  "execution_logs": [
+    {
+      "row_number": 1,
+      "brand_name": "Apple",
+      "amazon_link": "https://www.amazon.com/Apple-AirPods-Latest-Model/dp/B08N5KWB9H",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "error",
+      "reason": "Unexpected error: Failed to launch browser: BrowserType.launch: Executable doesn't exist at C:\\Users\\itxas\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1228\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557\n\u2551 Looks like Playwright was just installed or updated.       \u2551\n\u2551 Please run the following command to download new browsers: \u2551\n\u2551                                                            \u2551\n\u2551     playwright install                                     \u2551\n\u2551                                                            \u2551\n\u2551 <3 Playwright Team                                         \u2551\n\u255a\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u255d",
+      "execution_time": 0.6792981624603271
+    },
+    {
+      "row_number": 2,
+      "brand_name": "Samsung",
+      "amazon_link": "https://www.amazon.com/Samsung-SAMSUNG-Galaxy-S21-Ultra/dp/B08N6Z9N3D",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "error",
+      "reason": "Unexpected error: Browser context not initialized",
+      "execution_time": 0.0015139579772949219
+    },
+    {
+      "row_number": 3,
+      "brand_name": "Sony",
+      "amazon_link": "https://www.amazon.com/Sony-WH1000XM4-Wireless-Headphones-WH1000XM4/dp/B0863TXGM3",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "error",
+      "reason": "Unexpected error: Browser context not initialized",
+      "execution_time": 0.001214742660522461
+    }
+  ],
+  "config": {
+    "max_workers": 1
+  }
+}

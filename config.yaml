@@ -1,0 +1,82 @@
+app:
+  name: "Brand Website Scraper"
+  version: "1.0.0"
+  environment: "production"
+  debug: false
+
+browser:
+  headless: true
+  browser_type: "chromium"
+  timeout_ms: 30000
+  viewport_width: 1920
+  viewport_height: 1080
+  disable_images: false
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+scraping:
+  amazon:
+    max_retries: 2
+    timeout_seconds: 8
+  google:
+    max_searches: 3
+    results_per_page: 10
+    search_delay_seconds: 2
+    timeout_seconds: 15
+  website_verification:
+    timeout_seconds: 5
+    verify_ssl: true
+
+concurrency:
+  max_workers: 3
+  queue_size: 100
+  batch_size: 10
+
+time_budget:
+  brand_processing_soft_limit_seconds: 30
+  brand_processing_hard_limit_seconds: 45
+
+cache:
+  database_path: "./data/cache.db"
+  enable_brand_cache: true
+  enable_website_cache: true
+  cache_expiry_days: 30
+
+claude:
+  api_key: "${CLAUDE_API_KEY}"
+  model: "claude-opus-4-7"
+  max_tokens: 500
+  use_only_when: "ambiguous"
+
+logging:
+  level: "INFO"
+  format: "json"
+  log_file: "./logs/app.log"
+  max_file_size_mb: 100
+  backup_count: 5
+
+sheets:
+  google_sheets_api_key: "${GOOGLE_SHEETS_API_KEY}"
+  timeout_seconds: 10
+  batch_write_size: 100
+
+output:
+  export_format: "xlsx"
+  include_intermediate_columns: false
+  include_confidence_score: true
+  include_execution_time: true
+
+ignored_domains:
+  - amazon.com
+  - amazon.co.uk
+  - facebook.com
+  - instagram.com
+  - linkedin.com
+  - pinterest.com
+  - youtube.com
+  - reddit.com
+  - wikipedia.org
+  - alibaba.com
+  - aliexpress.com
+  - walmart.com
+  - ebay.com
+  - temu.com

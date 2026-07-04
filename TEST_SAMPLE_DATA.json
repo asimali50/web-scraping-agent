@@ -1,0 +1,35 @@
+{
+  "test_data": [
+    {
+      "row_number": 1,
+      "amazon_link": "https://www.amazon.com/dp/B09F9BJ9Z9",
+      "brand_name": "Nike",
+      "website": ""
+    },
+    {
+      "row_number": 2,
+      "amazon_link": "https://www.amazon.com/dp/B0BHYQVMWT",
+      "brand_name": "Apple",
+      "website": ""
+    },
+    {
+      "row_number": 3,
+      "amazon_link": "https://www.amazon.com/dp/B08F7D4D7N",
+      "brand_name": "Sony",
+      "website": ""
+    },
+    {
+      "row_number": 4,
+      "amazon_link": "https://www.amazon.com/dp/B07YYH86TX",
+      "brand_name": "Canon",
+      "website": ""
+    },
+    {
+      "row_number": 5,
+      "amazon_link": "https://www.amazon.com/dp/B08RKFQQP6",
+      "brand_name": "Samsung",
+      "website": ""
+    }
+  ],
+  "description": "Sample test data for runtime testing"
+}

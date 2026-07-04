@@ -1,0 +1,43 @@
+{
+  "session_id": "ef10d68e-16b1-4bc5-9873-34e6e3065c78",
+  "batch_name": "batch_ef10d68e-16b1-4bc5-9873-34e6e3065c78",
+  "timestamp": "2026-07-03T11:40:59.919839",
+  "total_rows": 3,
+  "processed_rows": 3,
+  "completion_percentage": 100.0,
+  "execution_logs": [
+    {
+      "row_number": 2,
+      "brand_name": "Apple",
+      "amazon_link": "https://www.amazon.com/dp/B0BHYQVMWT",
+      "website_selected": "https://www.apple.com",
+      "confidence": 95.0,
+      "status": "found",
+      "reason": "Cached result: Retrieved from cache (source: test)",
+      "execution_time": 0.0036573410034179688
+    },
+    {
+      "row_number": 3,
+      "brand_name": "Sony",
+      "amazon_link": "https://www.amazon.com/dp/B08F7D4D7N",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "not_found",
+      "reason": "No results found on Google",
+      "execution_time": 16.086209297180176
+    },
+    {
+      "row_number": 1,
+      "brand_name": "Nike",
+      "amazon_link": "https://www.amazon.com/dp/B09F9BJ9Z9",
+      "website_selected": null,
+      "confidence": 0.0,
+      "status": "not_found",
+      "reason": "No results found on Google",
+      "execution_time": 17.188879251480103
+    }
+  ],
+  "config": {
+    "max_workers": 2
+  }
+}
