@@ -43,7 +43,8 @@ data/output_*.xlsx
 Thumbs.db
 
 *.xlsx~
-.streamlit/
+.streamlit/secrets.toml
+.streamlit/sessions/
 
 session_*.json
 checkpoint_*.json
