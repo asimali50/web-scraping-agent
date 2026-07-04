@@ -14,3 +14,9 @@ aiohttp>=3.9.0
 asyncio-contextmanager>=1.0.0
 python-dotenv>=1.0.0
 streamlit>=1.40.0
+# LLM Providers (choose one or more)
+groq>=0.4.1
+google-generativeai>=0.3.0
+# Optional: anthropic (commented out for free tier testing)
+# anthropic>=0.7.0
+

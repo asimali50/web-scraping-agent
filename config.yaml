@@ -41,11 +41,23 @@ cache:
   enable_website_cache: true
   cache_expiry_days: 30
 
-claude:
-  api_key: "${CLAUDE_API_KEY}"
-  model: "claude-opus-4-7"
+llm:
+  # Provider options: groq (free, recommended), gemini (free), claude (paid)
+  provider: "groq"
+
+  # Model options per provider:
+  # - Groq: "mixtral-8x7b-32768", "llama2-70b-4096", "llama3-70b-8192"
+  # - Gemini: "gemini-pro", "gemini-1.5-pro"
+  # - Claude: "claude-opus-4-7", "claude-3-sonnet"
+  model: "mixtral-8x7b-32768"
+
   max_tokens: 500
-  use_only_when: "ambiguous"
+  use_only_when: "ambiguous"  # Use LLM only when confidence is ambiguous
+
+  # Legacy Claude config (kept for backward compatibility)
+  claude:
+    api_key: "${CLAUDE_API_KEY}"
+    model: "claude-opus-4-7"
 
 logging:
   level: "INFO"

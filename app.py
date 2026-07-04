@@ -157,6 +157,11 @@ class StreamlitBrandScraper:
             - Real-time progress tracking
             - Error recovery & checkpoints
             - Excel export with results
+
+            **LLM Integration:**
+            - Uses Groq API (free tier)
+            - No subscription required
+            - Get API key at: https://console.groq.com
             """
         )
 

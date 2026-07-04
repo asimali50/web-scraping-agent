@@ -11,6 +11,7 @@ from src.core.constants import (
 from src.core.exceptions import CacheException
 from src.core.models import AmazonProductData, BrandMatch, WebsiteAnalysis
 from src.services.logger_service import get_logger
+from src.services.llm_service import get_llm_service
 
 logger = get_logger(__name__)
 
@@ -20,9 +21,17 @@ class MatchingAgent:
 
     def __init__(self):
         """Initialize matching agent"""
-        self.use_claude = get_config().get("claude.use_only_when", "ambiguous")
+        self.use_llm = get_config().get("llm.use_only_when", "ambiguous")
         self.confidence_auto_save = CONFIDENCE_AUTO_SAVE
         self.confidence_review = CONFIDENCE_REVIEW
+
+        # Initialize LLM service for advanced verification
+        try:
+            self.llm = get_llm_service()
+            logger.info("LLM service initialized for matching agent")
+        except Exception as e:
+            logger.warning(f"LLM service not available, using deterministic matching only: {e}")
+            self.llm = None
 
     def match(
         self,
@@ -49,6 +58,23 @@ class MatchingAgent:
                 sources,
             )
 
+            # Use LLM for verification if confidence is ambiguous and LLM is available
+            claude_verified = False
+            if self.llm and self.use_llm == "ambiguous" and self.confidence_review <= confidence < self.confidence_auto_save:
+                try:
+                    llm_result = self.llm.verify_match(
+                        brand_name=amazon_data.brand,
+                        website_url=website_analysis.url,
+                        website_content="\n".join(website_analysis.headings + website_analysis.links),
+                        confidence=confidence
+                    )
+                    if llm_result.get("verified"):
+                        confidence = min(100, confidence + 15)
+                        reasoning += f"; LLM verified: {llm_result.get('reason')}"
+                        claude_verified = True
+                except Exception as e:
+                    logger.warning(f"LLM verification failed, continuing with deterministic score: {e}")
+
             # Determine status based on confidence
             if confidence >= self.confidence_auto_save:
                 status = "found"
@@ -63,7 +89,7 @@ class MatchingAgent:
                 confidence=confidence,
                 reasoning=reasoning,
                 sources=sources,
-                claude_verified=False,
+                claude_verified=claude_verified,
                 execution_time=amazon_data.extraction_time + website_analysis.extraction_time,
                 status=status,
             )
@@ -71,7 +97,7 @@ class MatchingAgent:
             logger.info(
                 f"Match result for {amazon_data.brand}: "
                 f"{website_analysis.url} "
-                f"(confidence: {confidence}%, status: {status})"
+                f"(confidence: {confidence}%, status: {status}, llm_verified: {claude_verified})"
             )
 
             return brand_match
